@@ -4,8 +4,19 @@
   --linear-gradient: linear-gradient(left to right, #5858c5, #5465e6);
   --primary-color: #fefefe;
   --dark-grey: #1f272d;
+  --d-flex: flex;
+  --padding: 1em;
+  --padding-text: 0.75em;
+  --font-weight: 400;
+  --min-width: 300px;
+  --border-radius: 15px;
+
+}
 
 
+@font-face {
+  font-family: "Rubik";
+  src: url("./Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
 }
 
 *,
@@ -18,6 +29,10 @@
 
 body{
   background: var(--BG-COLOR);
+  font-family: "Rubik";
+  font-weight: 700;
+  text-transform: uppercase;
+
 }
 
 .container{
@@ -26,9 +41,22 @@ body{
   left: 50%;
   translate: -50% -50%;
   background: var(--dark-grey);
+  border-radius: var(--border-radius);
   color: var(--primary-color);
+  display: var(--d-flex);
+  padding: var(--padding);
+  gap: var(--padding);
 }
 
+.section-1, .section2{
+  min-width: var(--min-width);
+}
+
+.section-1{
+  background-image: var(--radial-gradient);
+  border-radius: var(--border-radius);
+
+}
 
 
 .btn{
