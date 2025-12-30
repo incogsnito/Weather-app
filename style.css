@@ -6,7 +6,7 @@
   --dark-grey: #1f272d;
   --d-flex: flex;
   --padding: 1em;
-  --padding-text: 0.75em;
+  --padding-interior: 0.75em;
   --font-weight: 400;
   --min-width: 300px;
   --border-radius: 15px;
@@ -48,16 +48,40 @@ body{
   gap: var(--padding);
 }
 
-.section-1, .section2{
-  min-width: var(--min-width);
+.section-1{
+  min-width: min(200px, 500px);
 }
 
 .section-1{
   background-image: var(--radial-gradient);
   border-radius: var(--border-radius);
-
+  padding: var(--padding-interior);
+  display: var(--d-flex);
+  flex-direction: column;
+  gap: 10em;
 }
 
+.date__container{
+  display: var(--d-flex);
+  flex-direction: column;
+  gap: 5px;
+}
+
+.date{
+  font-weight: var(--font-weight);
+}
+
+
+.location{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+
+.weather{
+  font-size: clamp(3em, 4vw, 4em);
+}
 
 .btn{
   background-image: var(--radial-gradient);
