@@ -1,3 +1,13 @@
+:root{
+  --BG-COLOR : #353e4b;
+  --radial-gradient: radial-gradient(circle at top left, #82ebeb, #5858c5);
+  --linear-gradient: linear-gradient(left to right, #5858c5, #5465e6);
+  --primary-color: #fefefe;
+  --dark-grey: #1f272d;
+
+
+}
+
 *,
 *::before,
 *::after{
@@ -6,3 +16,21 @@
   box-sizing: border-box;
 }
 
+body{
+  background: var(--BG-COLOR);
+}
+
+.container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: var(--dark-grey);
+  color: var(--primary-color);
+}
+
+
+
+.btn{
+  background-image: var(--radial-gradient);
+}
