@@ -4,104 +4,41 @@
   padding:0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 @font-face {
   font-family: "Rubik";
   src: url("./Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
 }
 
-
-:root{
-  --BG-COLOR : #353e4b;
-  --radial-gradient: radial-gradient(circle at top left, #82ebeb, #5858c5);
-  --linear-gradient: linear-gradient(left to right, #5858c5, #5465e6);
-  --primary-color: #fefefe;
-  --dark-grey: #1f272d;
-  --d-flex: flex;
-  --padding: 1em;
-  --padding-interior: 0.75em;
-  --font-weight: 400;
-  --min-width: 300px;
-  --border-radius: 15px;
+@font-face {
+  font-family: "Rubik";
+  src: url("./Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: 600;
 }
 
 body{
-  background: var(--BG-COLOR);
+  min-height: 100vh;
+  min-width: 100vw;
+  display:flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Rubik";
-  font-weight: 700;
-  text-transform: uppercase;
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  height: 100vh;
-
+  background: black;
+  color: white;
 }
-
-
-input,button,textarea{
-  font: inherit;
-}
-
 
 .container{
-  background: var(--dark-grey);
-  border-radius: var(--border-radius);
-  color: var(--primary-color);
-  display: var(--d-flex);
-  padding: var(--padding);
-  gap: var(--padding);
-}
-
-
-
-.section-1{
-  background-image: var(--radial-gradient);
-  border-radius: var(--border-radius);
-  padding: var(--padding-interior);
-  display: var(--d-flex);
+  display:flex;
+  gap:1em;
   flex-direction: column;
-  gap: 8em;
-  padding-inline-end: 6em;
 }
 
-.date__container{
-  display: var(--d-flex);
+.wrapper{
+  border-top: 1px solid white;
+  padding-block-start: 1em ;
+  display:flex;
   flex-direction: column;
-  gap: 5px;
-}
-
-.date{
-  font-weight: var(--font-weight);
-}
-
-
-.location{
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 500;
-}
-
-.weather{
-  font-size: clamp(3em, 4vw, 4em);
-}
-
-.section-2{
-  display: var(--d-flex);
-  flex-direction: column;
-  justify-content: space-between;
-  padding-block: 2em;
-}
-
-.btn{
-  background-image: var(--radial-gradient);
-  border: none;
-  color: var(--primary-color);
-  font-weight: var(--font-weight);
-  font-size: clamp(0.7em, 1vw, 2em);
-  border-radius: 1em;
-  padding-inline: 2em;
-  padding-block: 0.25em;
-  display: inline-block;
 }
