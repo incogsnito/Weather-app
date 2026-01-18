@@ -28,12 +28,21 @@ body{
   font-family: "Rubik";
   background: black;
   color: white;
+  gap : 1em;
+  flex-direction: column;
+}
+
+h3{
+  text-transform: capitalize;
 }
 
 .container{
   display:flex;
+  background-image: linear-gradient(180deg, cyan, blue);
+  padding:  1em;
   gap:1em;
   flex-direction: column;
+  border-radius: 0.4em;
 }
 
 .wrapper{
