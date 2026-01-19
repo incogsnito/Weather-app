@@ -7,19 +7,26 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" placeholder="Location" id="field" />
+    <input
+      type="text"
+      placeholder="Location"
+      class="field"
+      id="field"
+      autocomplete="off"
+    />
     <section class="container">
-      <div class="firstwrapper">
-        <h3 id="description">Partly Cloudy</h3>
+      <div class="first-wrapper">
+        <h3 id="description"></h3>
         <img id="icon" src="" alt="Weather Condition Icon" />
       </div>
-      <div class="wrapper">
-        <span id="location">New York, USA</span>
-        <span id="day">Monday</span>
 
-        <span id="weatherc"></span>
+      <div class="second-wrapper">
+        <span class="location" id="location"></span>
+        <span class="day" id="day"></span>
 
-        <span id="weatherf"></span>
+        <span id="weatherc" class="weather"></span>
+
+        <span id="weatherf" class="weather"></span>
       </div>
     </section>
     <script src="script.js"></script>

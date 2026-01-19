@@ -18,6 +18,12 @@
   font-weight: 600;
 }
 
+@font-face {
+  font-family: "Rubik";
+  src: url("./Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500;
+}
+
 body {
   min-height: 100vh;
   min-width: 100vw;
@@ -25,30 +31,66 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Rubik";
-  background: black;
+  background: #141e30;
   color: white;
   gap: 1em;
   flex-direction: column;
+}
+
+input {
+  font-size: 100%;
+  font: inherit;
 }
 
 h3 {
   text-transform: capitalize;
 }
 
+.field {
+  padding: 1em;
+  border-radius: 2em;
+  outline: none;
+  border: none;
+}
+
 .container {
   display: flex;
-  background-image: linear-gradient(180deg, cyan, blue);
+  background-image: linear-gradient(90deg, #bdc3c7, #2c3e50);
   padding: 1em;
   gap: 1em;
   flex-direction: column;
   border-radius: 0.4em;
+  box-shadow:
+    0 0 5px rgba(255, 253, 208, 0.11),
+    0 0 10px rgba(255, 253, 208, 0.11),
+    0 0 20px rgba(255, 253, 208, 0.11);
 }
 
-.wrapper {
+.second-wrapper {
   border-top: 1px solid white;
   padding-block-start: 1em;
   display: flex;
   flex-direction: column;
+  gap: 1.5em;
+}
+
+.location {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.day {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.weather {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#description {
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 700px) {
@@ -56,7 +98,7 @@ h3 {
     flex-direction: row;
   }
 
-  .wrapper {
+  .second-wrapper {
     border-top: none;
     border-inline-start: 1px solid white;
     padding-inline: 1em;

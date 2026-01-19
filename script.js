@@ -85,14 +85,14 @@ fetch(apic)
   .then((res) => res.json())
   .then((data) => {
     const weather = document.getElementById("weatherc");
-    weather.innerText = data.main.temp + " C";
+    weather.innerText = data.main.temp + "° C";
   });
 
 fetch(apif)
   .then((res) => res.json())
   .then((data) => {
     const weather = document.getElementById("weatherf");
-    weather.innerText = data.main.temp + " F";
+    weather.innerText = data.main.temp + "° F";
   });
 
 fetch(apif)
