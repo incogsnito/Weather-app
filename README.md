@@ -1,4 +1,4 @@
-<h1>My Awesome Project</h1>
+<h1>Weather App</h1>
 <p>This is a simple weather app I made to learn how to manipulate apis. The app doesn't do much for nowm, but it should run fine and you can dynamically change your location. There will be more changes to come to the project as I learn more and look for things that I can add and code that I can clear</p>
 
 Link to project: [http://recruiters-love-seeing-live-demos.com/](https://incogsnito.github.io/Weather-app/)
