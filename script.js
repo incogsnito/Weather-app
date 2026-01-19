@@ -1,7 +1,6 @@
 const input = document.getElementById("field");
 input.addEventListener("keydown", (event) => {
   if (event.key != "Enter") return;
-  console.log("Working");
 
   const apiKey = "9cdfbf00a3ee210870169cb693a829c9";
 
@@ -29,7 +28,7 @@ input.addEventListener("keydown", (event) => {
     .then((res) => res.json())
     .then((data) => {
       const desc = document.getElementById("description");
-      desc.innerText = data.weather[0].description; //basically changes the inner text of the desc to the api's
+      desc.innerText = data.weather[0].description;
     });
 
   fetch(apif)
@@ -50,7 +49,6 @@ input.addEventListener("keydown", (event) => {
 
         const dayName = days[date.getDay()];
         day.innerText = dayName;
-        console.log(data);
       }
       function location() {
         const lo = document.getElementById("location");
@@ -109,7 +107,6 @@ fetch(apif)
 
       const dayName = days[date.getDay()];
       day.innerText = dayName;
-      console.log(data);
     }
     function location() {
       const lo = document.getElementById("location");
