@@ -28,7 +28,7 @@ input.addEventListener("keydown", (event) => {
     .then((res) => res.json())
     .then((data) => {
       const desc = document.getElementById("description");
-      desc.innerText = data.weather[0].description;
+      desc.innerText = data.weather[0].description; //basically changes the inner text of the desc to the api's
     });
 
   fetch(apif)
@@ -55,6 +55,19 @@ input.addEventListener("keydown", (event) => {
         lo.innerText = `${data.name}, ${data.sys.country}`;
       }
 
+      function icon() {
+        //Icon Generator
+        fetch(apif)
+          .then((res) => res.json())
+          .then((data) => {
+            let icon = data.weather[0].icon;
+            const weatherIcon = document.getElementById("icon");
+            let iconURL = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+            weatherIcon.src = iconURL;
+          });
+      }
+
+      icon();
       location();
       day();
     });
@@ -86,7 +99,7 @@ fetch(apif)
   .then((res) => res.json())
   .then((data) => {
     const desc = document.getElementById("description");
-    desc.innerText = data.weather[0].description; //basically changes the inner text of the desc to the api's
+    desc.innerText = data.weather[0].description;
   });
 
 fetch(apif)
@@ -112,7 +125,18 @@ fetch(apif)
       const lo = document.getElementById("location");
       lo.innerText = `${data.name}, ${data.sys.country}`;
     }
+    function icon() {
+      fetch(apif)
+        .then((res) => res.json())
+        .then((data) => {
+          let icon = data.weather[0].icon;
+          const weatherIcon = document.getElementById("icon");
+          let iconURL = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+          weatherIcon.src = iconURL;
+        });
+    }
 
+    icon();
     location();
     day();
   });
