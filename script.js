@@ -3,11 +3,18 @@ input.addEventListener("keydown", (event) => {
   if (event.key != "Enter") return;
 
   const inputValue = input.value;
-  const [city, state, country] = inputValue.split(", ");
+  const [city, state, country] = inputValue
+    .split(", ")
+    .map((part) => part.trim());
+
+  if (!country) {
+    country = state;
+    state = "";
+  }
 
   const apiKey = "9cdfbf00a3ee210870169cb693a829c9";
 
-  const geo = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+  const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
 
   fetch(geo)
     .then((res) => res.json())
@@ -89,7 +96,7 @@ const country = "US";
 
 const state = "";
 
-const geo = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
 
 fetch(geo)
   .then((res) => res.json())
