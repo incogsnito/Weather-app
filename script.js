@@ -14,7 +14,7 @@ input.addEventListener("keydown", (event) => {
 
   const apiKey = "9cdfbf00a3ee210870169cb693a829c9";
 
-  const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+  const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=2&appid=${apiKey}`;
 
   fetch(geo)
     .then((res) => res.json())
