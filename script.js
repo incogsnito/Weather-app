@@ -3,7 +3,7 @@ input.addEventListener("keydown", (event) => {
   if (event.key != "Enter") return;
 
   const inputValue = input.value;
-  const [city, state, country] = inputValue
+  let [city, state, country] = inputValue
     .split(", ")
     .map((part) => part.trim());
 
