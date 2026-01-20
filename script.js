@@ -75,68 +75,81 @@ input.addEventListener("keydown", (event) => {
 
 const apiKey = "9cdfbf00a3ee210870169cb693a829c9";
 
-let city = "Dehli";
+const city = "Berlin";
 
-const apic = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+const country = "US";
 
-const apif = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+const state = "";
 
-fetch(apic)
+const geo = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+
+fetch(geo)
   .then((res) => res.json())
   .then((data) => {
-    const weather = document.getElementById("weatherc");
-    weather.innerText = data.main.temp + "° C";
-  });
+    const lon = data[0].lon;
+    const lat = data[0].lat;
 
-fetch(apif)
-  .then((res) => res.json())
-  .then((data) => {
-    const weather = document.getElementById("weatherf");
-    weather.innerText = data.main.temp + "° F";
-  });
+    const apif = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
 
-fetch(apif)
-  .then((res) => res.json())
-  .then((data) => {
-    const desc = document.getElementById("description");
-    desc.innerText = data.weather[0].description;
-  });
+    const apic = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
-fetch(apif)
-  .then((res) => res.json())
-  .then((data) => {
-    function day() {
-      const date = new Date(data.dt * 1000);
-      const day = document.getElementById("day");
-      const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
+    fetch(apif)
+      .then((res) => res.json())
+      .then((data) => {
+        const weather = document.getElementById("weatherf");
+        weather.innerText = data.main.temp + "° F";
+      });
 
-      const dayName = days[date.getDay()];
-      day.innerText = dayName;
-    }
-    function location() {
-      const lo = document.getElementById("location");
-      lo.innerText = `${data.name}, ${data.sys.country}`;
-    }
-    function icon() {
-      fetch(apif)
-        .then((res) => res.json())
-        .then((data) => {
-          let icon = data.weather[0].icon;
-          const weatherIcon = document.getElementById("icon");
-          let iconURL = `https://openweathermap.org/img/wn/${icon}@4x.png`;
-          weatherIcon.src = iconURL;
-        });
-    }
+    fetch(apic)
+      .then((res) => res.json())
+      .then((data) => {
+        const weather = document.getElementById("weatherc");
+        weather.innerText = data.main.temp + "° C";
+      });
 
-    icon();
-    location();
-    day();
+    fetch(apif)
+      .then((res) => res.json())
+      .then((data) => {
+        const desc = document.getElementById("description");
+        desc.innerText = data.weather[0].description;
+      });
+
+    fetch(apif)
+      .then((res) => res.json())
+      .then((data) => {
+        function day() {
+          const date = new Date(data.dt * 1000);
+          const day = document.getElementById("day");
+          const days = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ];
+
+          const dayName = days[date.getDay()];
+          day.innerText = dayName;
+        }
+        function location() {
+          const lo = document.getElementById("location");
+          lo.innerText = `${data.name}, ${data.sys.country}`;
+        }
+        function icon() {
+          fetch(apif)
+            .then((res) => res.json())
+            .then((data) => {
+              let icon = data.weather[0].icon;
+              const weatherIcon = document.getElementById("icon");
+              let iconURL = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+              weatherIcon.src = iconURL;
+            });
+        }
+
+        icon();
+        location();
+        day();
+      });
   });
