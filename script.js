@@ -1,6 +1,6 @@
 const input = document.getElementById("field");
 
-function weather(getCity, getState, getCountry) {
+function fetchWeather(getCity, getState, getCountry) {
   const apiKey = "9cdfbf00a3ee210870169cb693a829c9";
 
   let city = getCity;
@@ -98,7 +98,7 @@ input.addEventListener("keyup", (event) => {
     country = state;
     state = "";
   }
-  weather(city, state, country);
+  fetchWeather(city, state, country);
 });
 
-weather("Berlin", "", "US");
+fetchWeather("Berlin", "", "US");
