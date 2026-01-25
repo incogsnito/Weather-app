@@ -1,32 +1,15 @@
 const input = document.getElementById("field");
 
-input.addEventListener("keyup", (event) => {
-  if (event.key != "Enter") return;
-
-  const inputValue = input.value;
-
-  let [city, state, country] = inputValue
-    .split(", ")
-    .map((part) => part.trim());
-
-  if (!country) {
-    country = state;
-    state = "";
-  }
-
-  weather(city, state, country);
-});
-
-function weather(location) {
+function weather(getCity, getState, getCountry) {
   const apiKey = "9cdfbf00a3ee210870169cb693a829c9";
 
-  const city = location;
+  let city = getCity;
 
-  const country = "US";
+  let state = getState;
 
-  const state = "";
+  let country = getCountry;
 
-  const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${apiKey}`;
+  const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=2&appid=${apiKey}`;
 
   fetch(geo)
     .then((res) => res.json())
@@ -102,4 +85,20 @@ function weather(location) {
     });
 }
 
-weather("Berlin");
+input.addEventListener("keyup", (event) => {
+  if (event.key != "Enter") return;
+
+  const inputValue = input.value;
+
+  let [city, state, country] = inputValue
+    .split(", ")
+    .map((part) => part.trim());
+
+  if (!country) {
+    country = state;
+    state = "";
+  }
+  weather(city, state, country);
+});
+
+weather("Berlin", "", "US");
