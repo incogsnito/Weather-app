@@ -11,6 +11,16 @@ function fetchWeather(getCity, getState, getCountry) {
 
   const geo = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=2&appid=${apiKey}`;
 
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   fetch(geo)
     .then((res) => res.json())
     .then((data) => {
@@ -48,15 +58,6 @@ function fetchWeather(getCity, getState, getCountry) {
           function day() {
             const date = new Date(data.dt * 1000);
             const day = document.getElementById("day");
-            const days = [
-              "Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-            ];
 
             const dayName = days[date.getDay()];
             day.innerText = dayName;
